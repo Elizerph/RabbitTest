@@ -4,7 +4,10 @@
     {
         static async Task Main(string[] args)
         {
-            var filepath = "C:\\Users\\Aleksey\\Desktop\\urls.txt";
+            if (args == null || args.Length < 1)
+                return;
+
+            var filepath = args[0];
 
             var cts = new CancellationTokenSource();
             Console.CancelKeyPress += (s, e) => cts.Cancel();
